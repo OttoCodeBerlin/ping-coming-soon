@@ -22,10 +22,24 @@ class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.state.email.length === 0 ? this.setState({ isEmpty: true }) : this.setState({ isEmpty: false })
-    this.setState({
-      isNotEmail: this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) === null,
-    })
+    const emptyHelper = this.state.email.length === 0
+    const emailHelper = this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i) === null
+    if (emptyHelper) {
+      this.setState({
+        isEmpty: true,
+        isNotEmail: false,
+      })
+    } else if (emailHelper) {
+      this.setState({
+        isEmpty: false,
+        isNotEmail: true,
+      })
+    } else {
+      this.setState({
+        isEmpty: false,
+        isNotEmail: false,
+      })
+    }
   }
 
   render() {
@@ -37,32 +51,49 @@ class App extends React.Component {
           We are launching <span className="bold darkblue">soon!</span>
         </h1>
         <h5 className="darkblue">Subscribe and get notified</h5>
-        <form action="" method="post">
-          {/*       - The `input` field is empty. The message for this error should say *"Whoops! It looks like you forgot to add your email"*
-	- The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say *"Please provide a valid email address"*
- */}
+        <form action="" method="post" noValidate>
           <input
-            className="inputs input-left"
-            type="email"
+            className={
+              this.state.isEmpty || this.state.isNotEmail ? 'inputs input-left input-error' : 'inputs input-left'
+            }
+            type="text"
             name="email"
             id="email"
             placeholder="Your email address..."
             value={this.state.email}
             onChange={(e) => this.handleInput(e)}
           />
+
+          {this.state.isEmpty ? (
+            <small className="small-warning mobile small-warning-empty">
+              Whoops! It looks like you forgot to add your email.
+            </small>
+          ) : null}
+          {this.state.isNotEmail ? (
+            <small className="small-warning mobile small-warning-email">Please provide a valid email address.</small>
+          ) : null}
           <button className="inputs button-right" onClick={(e) => this.handleSubmit(e)} type="submit">
             Notify Me
           </button>
+          <br />
+          {this.state.isEmpty ? (
+            <small className="small-warning desktop small-warning-empty">
+              Whoops! It looks like you forgot to add your email.
+            </small>
+          ) : null}
+          {this.state.isNotEmail ? (
+            <small className="small-warning desktop small-warning-email">Please provide a valid email address.</small>
+          ) : null}
         </form>
         <img className="illustration" src={illustration} alt="" />
         <br />
-        <a href="www.facebook.com" className="fa fa-facebook blue">
+        <a href="https://www.facebook.com" className="fa fa-facebook blue">
           {' '}
         </a>
-        <a href="www.twitter.com" className="fa fa-twitter blue">
+        <a href="https://www.twitter.com" className="fa fa-twitter blue">
           {' '}
         </a>
-        <a href="www.instagram.com" className="fa fa-instagram blue">
+        <a href="https://www.instagram.com" className="fa fa-instagram blue">
           {' '}
         </a>
         <br />

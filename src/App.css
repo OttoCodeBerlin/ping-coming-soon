@@ -57,6 +57,8 @@ small {
 
 .fa:hover {
   opacity: 0.7;
+  background-color: hsl(223, 87%, 63%);
+  color: white;
 }
 
 
@@ -74,7 +76,7 @@ small {
   height: 56px;
   padding: 0;
   border-radius: 28px;
-  margin: 30px 10px;
+  margin: 30px 10px 10px 10px;
   font-size: 1rem;
   outline: none;
 }
@@ -84,6 +86,10 @@ small {
   border: 1px solid hsl(223, 100%, 88%);
   font-weight: 300;
   text-indent: 30px;
+}
+
+.input-error {
+  border: 1px solid hsl(354, 100%, 66%);
 }
 
 .button-right {
@@ -98,7 +104,28 @@ small {
 
 .button-right:active {
   transform: translateY(2px);
+}
 
+.small-warning {
+  color: hsl(354, 100%, 66%);
+  font-style: italic;
+}
+
+.desktop {
+  display: inherit;
+  font-size: 0.85rem;
+}
+
+.mobile {
+  display: none;
+}
+
+.small-warning-empty {
+  padding-right: 275px;
+}
+
+.small-warning-email {
+  padding-right: 328px;
 }
 
 @media (max-width: 414px) {
@@ -113,6 +140,24 @@ small {
   small {
     font-size: 1rem;
     margin-bottom: 50px;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: inherit;
+    font-size: 1.2rem;
+  }
+
+  .small-warning-empty {
+    padding-right: 0px;
+  }
+  
+  .small-warning-email {
+    padding-right: 0px;
+    margin: 0;
   }
 
   .ping-logo {
