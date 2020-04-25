@@ -1,17 +1,51 @@
+html {
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+
+}
+
+
+
 .App {
   text-align: center;
   font-family: 'Libre Franklin', sans-serif;
 }
 
+
+
 h1 {
-  color: hsl(0, 0%, 59%);
   font-weight: 300;
-  /* color: hsl(209, 33%, 12%) */
+  font-size: 3rem;
+}
+
+h5 {
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  margin-top: -15px;
+}
+
+small {
+  color: hsl(0, 0%, 59%);
+  font-size: .75rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.lightgrey {
+  color: hsl(0, 0%, 59%);
+}
+
+.darkblue {
+  color: hsl(209, 33%, 12%)
 }
 
 .fa {
   padding: 6px;
-  margin: 8px;
+  margin: 8px 8px 32px 8px;
   font-size: 15px;
   width: 15px;
   text-align: center;
@@ -26,9 +60,81 @@ h1 {
 }
 
 
-
+.ping-logo {
+  margin: 80px 0 15px 0;
+}
 
 .illustration {
-  width: 800px;
-  padding: 20px;
+  max-width: 75%;
+  height: auto;
+  padding: 50px;
+}
+
+.inputs {
+  height: 56px;
+  padding: 0;
+  border-radius: 28px;
+  margin: 30px 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-left {
+  width: 400px;
+  border: 1px solid hsl(223, 100%, 88%);
+  font-weight: 300;
+  text-indent: 30px;
+}
+
+.button-right {
+  width: 200px;
+  background-color: hsl(223, 87%, 63%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  box-shadow: 5px 5px 10px hsl(223, 100%, 88%);
+
+}
+
+.button-right:active {
+  transform: translateY(2px);
+
+}
+
+@media (max-width: 414px) {
+  html {
+    font-size: 50%;
+  }
+
+  h5 {
+    margin: 15px;
+  }
+
+  small {
+    font-size: 1rem;
+    margin-bottom: 50px;
+  }
+
+  .ping-logo {
+    width: 15%;
+    margin: 70px 0 15px 0;
+  }
+
+  .inputs {
+    height: 40px;
+    padding: 0;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 1.5rem;
+  }
+
+  .input-left {
+    width: 80%;
+    margin-top: 20px;
+
+  }
+
+  .button-right {
+    width: 80%;
+  }
 }
